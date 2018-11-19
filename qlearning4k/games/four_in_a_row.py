@@ -40,6 +40,13 @@ class Four_in_a_row(Game):
 		state[row][action] = 1
 		self.state = state
 
+	def state_to_string(self):
+		result = ''
+		for row in self.state:
+			row_to_str = np.char.mod('%d', row)
+			result += ''.join(row_to_str) + '-'
+		return result
+
 	def get_state(self):
 		#im_size = (self.grid_size,) * 2
 		#state = self.state[0]
@@ -47,14 +54,7 @@ class Four_in_a_row(Game):
 		#canvas[state[0], state[1]] = 1
 		#canvas[-1, state[2]-1:state[2] + 2] = 1
 		#return canvas
-		return state_to_string(self)
-
-	def state_to_string(self):
-		result = ''
-		for row in self.state:
-			row_to_str = np.char.mod('%d', row)
-			result += ' '.join(row_to_str) + '-'
-		return result
+		return state_to_string()
 
 	def get_score(self):
 		#fruit_row, fruit_col, basket = self.state[0]
