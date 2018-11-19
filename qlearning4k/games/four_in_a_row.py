@@ -34,7 +34,7 @@ class Four_in_a_row(Game):
 		#out = np.asarray([f0, f1, new_basket])
 		#out = out[np.newaxis]
 		#assert len(out.shape) == 2
-		row = self.grid_size
+		row = self.grid_size - 1
 		while state[row][action] != 0:
 			row -= 1
 		state[row][action] = 1
