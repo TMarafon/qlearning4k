@@ -34,7 +34,10 @@ class Agent:
 		self.exp_replay.reset_memory()
 
 	def check_game_compatibility(self, game):
-		if len(self.model.input_layers_node_indices) != 1:
+		if hasattr(self.model, "input_layers_node_indices"):
+			if len(self.model.input_layers_node_indices) != 1:
+				raise Exception('Multi node input is not supported.')
+		elif len(self.model.inputs) != 1:
 			raise Exception('Multi node input is not supported.')
 		game_output_shape = (1, None) + game.get_frame().shape
 		if len(game_output_shape) != len(self.model.get_input_shape_at(0)):
