@@ -36,7 +36,7 @@ class Four_in_a_row(Game):
 		#assert len(out.shape) == 2
 		row = self.grid_size
 		while state[row][action] != 0:
-		    row -= 1
+			row -= 1
 		state[row][action] = 1
 		self.state = state
 
@@ -49,12 +49,12 @@ class Four_in_a_row(Game):
 		#return canvas
 		return state_to_string(self)
 
-    def state_to_string(self):
-        result = ''
-        for row in self.state:
-            row_to_str = np.char.mod('%d', row)
-            result += ' '.join(row_to_str) + '-'
-        return result
+	def state_to_string(self):
+		result = ''
+		for row in self.state:
+			row_to_str = np.char.mod('%d', row)
+			result += ' '.join(row_to_str) + '-'
+		return result
 
 	def get_score(self):
 		#fruit_row, fruit_col, basket = self.state[0]
@@ -67,12 +67,12 @@ class Four_in_a_row(Game):
 		#else:
 		#	return 0
 		string = state_to_string(self)
-        return len([m.start() for m in re.finditer('(?=11)', string)])
+		return len([m.start() for m in re.finditer('(?=11)', string)])
 
 	def is_over(self):
-	    string = state_to_string(self)
+		string = state_to_string(self)
 		return len([m.start() for m in re.finditer('(?=1111)', string)]) == 1
 
 	def is_won(self):
 		string = state_to_string(self)
-        return len([m.start() for m in re.finditer('(?=1111)', string)]) == 1
+		return len([m.start() for m in re.finditer('(?=1111)', string)]) == 1
