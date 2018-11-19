@@ -54,7 +54,7 @@ class Four_in_a_row(Game):
 		#canvas[state[0], state[1]] = 1
 		#canvas[-1, state[2]-1:state[2] + 2] = 1
 		#return canvas
-		return self.state_to_string(self)
+		return self.state_to_string()
 
 	def get_score(self):
 		#fruit_row, fruit_col, basket = self.state[0]
@@ -66,13 +66,13 @@ class Four_in_a_row(Game):
 		#		return -1
 		#else:
 		#	return 0
-		string = self.state_to_string(self)
+		string = self.state_to_string()
 		return len([m.start() for m in re.finditer('(?=11)', string)])
 
 	def is_over(self):
-		string = self.state_to_string(self)
+		string = self.state_to_string()
 		return len([m.start() for m in re.finditer('(?=1111)', string)]) == 1
 
 	def is_won(self):
-		string = self.state_to_string(self)
+		string = self.state_to_string()
 		return len([m.start() for m in re.finditer('(?=1111)', string)]) == 1
