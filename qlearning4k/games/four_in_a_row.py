@@ -16,7 +16,7 @@ class Four_in_a_row(Game):
 		#n = np.random.randint(0, self.grid_size-1, size=1)
 		#m = np.random.randint(1, self.grid_size-2, size=1)
 		#self.state = np.asarray([0, n, m])[np.newaxis]
-		self.state = np.zeros(self.grid_size,self.grid_size)
+		self.state = np.zeros((self.grid_size,self.grid_size))
 
 	@property
 	def name(self):
