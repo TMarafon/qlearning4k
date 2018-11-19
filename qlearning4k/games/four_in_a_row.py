@@ -5,7 +5,7 @@ import re
 from .game import Game
 
 
-class four_in_a_row(Game):
+class Four_in_a_row(Game):
 
 	def __init__(self, grid_size=7):
 		self.grid_size = grid_size
